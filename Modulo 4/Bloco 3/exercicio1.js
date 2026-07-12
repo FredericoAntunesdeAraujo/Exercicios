@@ -14,10 +14,13 @@ function ehPositivo(numero){
     return;
 };
 
-const calcularArea = (altura, largura) => {
+
+
+function calcularArea(altura,largura){
     const areaRetangulo = altura * largura;
     return areaRetangulo;
 }
+
 
 console.log(saudacao("Roberto Carlos"));
 console.log(ehPositivo(1));
