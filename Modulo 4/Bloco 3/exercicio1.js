@@ -14,8 +14,6 @@ function ehPositivo(numero){
     return;
 };
 
-
-
 function calcularArea(altura,largura){
     const areaRetangulo = altura * largura;
     return areaRetangulo;
