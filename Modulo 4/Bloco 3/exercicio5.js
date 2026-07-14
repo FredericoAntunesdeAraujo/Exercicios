@@ -11,10 +11,8 @@ function criarPersonagem(nome, classe, nivel) {
     };
 }
 
-// Criando os personagens
 const personagem1 = criarPersonagem("Arthur", "Guerreiro", 10);
 const personagem2 = criarPersonagem("Merlin", "Mago", 8);
 
-// Chamando o método
 personagem1.apresentar();
 personagem2.apresentar();
