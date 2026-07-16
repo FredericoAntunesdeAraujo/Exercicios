@@ -22,7 +22,14 @@ async function MostrarAluno() {
         const resultado = await client.query(
             'SELECT * FROM alunos WHERE presente = FALSE'
         );
-        console.log("Nenhum aluno presente");
+        if(resultado.rows.length === 0){
+
+            console.log("Nenhum aluno presente.");
+        } else {
+            resultado.rows.forEach(aluno => {
+            console.log(`ID: ${aluno.id} | Nome: ${aluno.nome} | Nota: ${aluno.nota}`);
+        });
+        }
 
     } catch(erro) {
         console.log('❌ Erro ao listar itens:', erro.message);
@@ -34,21 +41,35 @@ async function MostrarAluno() {
 
 async function MostrarJogo() {
     const client = criarCliente();
-    try{
-        console.log("Digite um genero de jogo: ");
-        const generoJogo = prompt('Genero: ');
 
+    try {
+
+        await client.connect();
+        const generoJogo = prompt('Digite um gênero de jogo: ');
 
         const resultado = await client.query(
-            'SELECT * FROM jogos WHERE genero = $1'
-        )
-        console.log(generoJogo.rows)
+            'SELECT id, titulo, nota, lancamento FROM jogos WHERE genero = $1',
+            [generoJogo]
+        );
 
-    } catch(erro){
+        if (resultado.rows.length === 0) {
+            console.log("Nenhum jogo encontrado para esse gênero.");
+
+        } else {
+            resultado.rows.forEach(jogo => {
+
+                console.log(
+                    `ID: ${jogo.id} | Título: ${jogo.titulo} | Nota: ${jogo.nota} | Ano: ${jogo.lancamento}`
+                );
+            });
+        }
+    } catch(erro) {
         console.log('❌ Erro ao listar itens:', erro.message);
-    } finally{
+
+    } finally {
         await client.end();
     }
 }
+
 
 MostrarJogo();
