@@ -13,19 +13,21 @@ const hp = nivelP * 10;
 function rank(nivelP){
 
     if ( nivelP <= 10 && nivelP >= 0){
-        console.log("Recruta");
+        return "Recruta";
     } else if (nivelP <= 20){
-        console.log("Veterano");
+        return "Veterano";
     } else if (nivelP >= 21){
-        console.log("Lendário");
+        return "Lendário";
     } else {
-        console.log("Você precisa melhorar")
+        return "Você precisa melhorar";
     }
-    return;
 };
+
+const rankP = rank(nivelP);
+
 console.log(chalk.bgBlue("===== Perfil Usuário ====="));
 console.log(chalk.bgRed(`===== Nome : ${nomeP} =====`));
 console.log(chalk.bgRed(`===== Classe : ${classeP} =====`));
 console.log(chalk.bgRed(`===== Nível : ${nivelP} =====`));
 console.log(chalk.bgRed(`===== HP : ${hp} =====`));
-console.log(chalk.bgRed(`===== Rank : ${rank} =====`));
+console.log(chalk.bgRed(`===== Rank : ${rankP} =====`));
