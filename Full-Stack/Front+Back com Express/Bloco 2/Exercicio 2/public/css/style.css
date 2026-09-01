@@ -1,0 +1,23 @@
+.disponivel {
+    color: green;
+}
+
+.indisponivel {
+    color: red;
+}
+
+.btn-remover:hover {
+  background-color: red;
+  color: black;
+}
+
+
+.btn-remover{
+    
+    border: 10px;
+    border-radius: 5px;
+    background-color: blueviolet;
+    color: aqua;
+    padding: 10px 20px;
+    transition: background-color 0.4s ease-in-out;
+}
